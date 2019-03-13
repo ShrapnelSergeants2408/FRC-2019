@@ -26,6 +26,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends TimedRobot {
+  // Creates the variables
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
@@ -97,6 +98,7 @@ public class Robot extends TimedRobot {
     // Creates variables for the left and right stick input
     left = -Joy1.getRawAxis(1);
     right = Joy2.getRawAxis(1);
+
     // Turbo Button
     if (Joy1.getRawButtonPressed(1) || Joy2.getRawButtonPressed(1)) {
       FLM.setSpeed(left);
@@ -109,6 +111,7 @@ public class Robot extends TimedRobot {
       BLM.setSpeed(left / 2);
       BRM.setSpeed(right / 2);
     }
+
     // Front Piston
     if(Joy3.getRawButton(5) || Joy3.getRawButton(3)){
       if(fpcooldown.get() >= 0.5){
@@ -121,6 +124,7 @@ public class Robot extends TimedRobot {
         fp.set(Value.kForward);
       }
     }
+
     // Back Piston
     if(Joy3.getRawButton(6) || Joy3.getRawButton(4)){
       if(bpcooldown.get() >= 0.5){
@@ -133,6 +137,7 @@ public class Robot extends TimedRobot {
         bp.set(Value.kForward);
       }
     }
+
     // Hatch System
     if(Joy3.getRawButton(1)){
       if(hatchcooldown.get() >= 0.5){
@@ -147,9 +152,6 @@ public class Robot extends TimedRobot {
      }
     }
 
-  /**
-   * This function is called periodically during test mode.
-   */
   @Override
   public void testPeriodic() {
   }
